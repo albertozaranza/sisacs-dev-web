@@ -9,8 +9,8 @@ export default class Menu extends Component {
                     <i className="fa fa-hospital-o mr-2"></i>
                     SISACS
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
             </div>
             <div id='navbar-menu' className='navbar-collapse collapse'>

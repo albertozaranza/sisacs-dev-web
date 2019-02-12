@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
+var agentes = []
+
+// BUGA AO SER ACESSADO DIRETAMENTE VIA URL
 
 export default class List extends Component {
-    renderRows = () => {
-        let ids = []
-        firebase.database().ref('/agentes').once('value', function(snapshot) {
-            snapshot.forEach(function(keys) {
-                ids.push(keys.key)
+    componentDidMount() {
+        agentes = []
+        firebase.database().ref('/agentes').once('value').then(snapshot => {
+            snapshot.forEach(keys => {
+                agentes.push({key: keys.key})
             })
         })
-        return ids.map(item => (
-            <tr>
-                <td>{item}</td>
+    }
+    renderRows = () => {
+        return agentes.map((item, index) => (
+            <tr key={index}>
+                <td>{item.key}</td>
             </tr>
         ))
     }
