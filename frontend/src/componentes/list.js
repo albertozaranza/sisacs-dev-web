@@ -1,37 +1,47 @@
 import React, { Component } from 'react'
+import BotaoAgente from './botaoAgente'
 import firebase from 'firebase'
-var agentes = []
-
-// BUGA AO SER ACESSADO DIRETAMENTE VIA URL
 
 export default class List extends Component {
-    componentDidMount() {
-        agentes = []
+    constructor(props) {
+        super(props);
+        this.state = {
+            agentes: null
+        };
+    }
+    componentWillMount() {
+        let agentes = []
         firebase.database().ref('/agentes').once('value').then(snapshot => {
             snapshot.forEach(keys => {
                 agentes.push({key: keys.key})
             })
+            this.setState({agentes})
         })
     }
     renderRows = () => {
-        return agentes.map((item, index) => (
+        return this.state.agentes.map((item, index) => (
             <tr key={index}>
-                <td>{item.key}</td>
+                <td>
+                    <BotaoAgente nome={item.key} />
+                </td>
             </tr>
         ))
     }
     render() {
-        return (
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.renderRows()}
-                </tbody>
-            </table>
-        )
+        if(this.state.agentes != null)
+            return (
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.renderRows()}
+                    </tbody>
+                </table>
+            )
+        else
+            return <h1>Loading</h1>
     }
 }
