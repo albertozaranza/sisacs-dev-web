@@ -18,30 +18,27 @@ export default class List extends Component {
             this.setState({agentes})
         })
     }
-    renderRows = () => {
+    renderItems = () => {
         return this.state.agentes.map((item, index) => (
-            <tr key={index}>
-                <td>
-                    <BotaoAgente nome={item.key} />
-                </td>
-            </tr>
+            <li className="list-group-item rounded m-1">
+                <BotaoAgente nome={item.key}/>
+            </li>
         ))
     }
     render() {
         if(this.state.agentes != null)
             return (
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.renderRows()}
-                    </tbody>
-                </table>
+                <div className="p-2 m-2 rounded border" style={{backgroundColor: '#F8F8F8'}}>
+                    <ul className="list-group">
+                        {this.renderItems()}
+                    </ul>
+                </div>
             )
         else
-            return <h1>Loading</h1>
+            return (
+                <div>
+                    <h1>Loading</h1>
+                </div>
+            )
     }
 }

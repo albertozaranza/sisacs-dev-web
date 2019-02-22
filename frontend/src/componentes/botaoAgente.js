@@ -4,12 +4,12 @@ export default class BotaoAgente extends Component {
     
     render() {
         return (
-            <div>
-                <div className="container-fluid">
+            <div className="d-flex flex-row align-items-center">
+                <div className="flex-grow-1">
                     {this.props.nome}
                 </div>
                 <div>
-                    <button>
+                    <button className="btn btn-secondary">
                         Detalhes
                     </button>
                 </div>
