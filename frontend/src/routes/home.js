@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../componentes/header'
 
 export default class Menu extends Component {
@@ -6,7 +7,9 @@ export default class Menu extends Component {
     return (
         <div>
             <Header name="Bem vindo"/>
-            <button onClick={() => this.props.history.push('/agentes')}>Form1</button>
+            <Link to={`/agentes`}>
+              <button>Form1</button>
+            </Link>
         </div>
     )
   }
