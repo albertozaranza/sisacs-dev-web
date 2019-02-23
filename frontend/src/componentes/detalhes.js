@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
+import loading from '../resources/loading.gif'
 
 export default class Detalhes extends Component {
     constructor(props) {
@@ -35,8 +36,8 @@ export default class Detalhes extends Component {
             )
         else
             return (
-                <div>
-                    <h1>Loading</h1>
+                <div className='d-flex justify-content-center'>
+                    <img src={loading} alt='Loading...'/>
                 </div>
             )
     }
