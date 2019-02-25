@@ -2,10 +2,9 @@
     "name": "node-react",
     "version": "1.0.0",
     "scripts": {
-        "client": "cd client && npm start",
-        "server": "node server.js",
-        "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-        "start": "nodemon server.js"
+        "client": "cd ../../frontend && npm start",
+        "server": "nodemon server.js",
+        "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
     },
     "dependencies": {
         "express": "^4.16.2",
