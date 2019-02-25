@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BotaoDetalhes from './botaoDetalhes'
 import firebase from 'firebase'
 import loading from '../resources/loading.gif'
 
@@ -21,7 +22,7 @@ export default class Detalhes extends Component {
     renderItems = () => {
         return this.state.visitas.map((item, index) => (
             <li key={index} className="list-group-item rounded m-1">
-                {item.id}
+                <BotaoDetalhes id={atob(item.id)} />
             </li>
         ))
     }
