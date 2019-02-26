@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 
 export default class BotaoDetalhes extends Component {
     copiar = id => {
@@ -12,11 +11,9 @@ export default class BotaoDetalhes extends Component {
                     {this.props.id}
                 </div>
                 <div>
-                    <Link to={`/detalhes/${this.props.id}`}>
-                        <button className="btn btn-secondary" onClick={() => this.copiar(this.props.id)}>
-                            Copiar
-                        </button>
-                    </Link>
+                    <button className="btn btn-secondary" onClick={() => this.copiar(this.props.id)}>
+                        Copiar
+                    </button>
                 </div>
             </div>
         )

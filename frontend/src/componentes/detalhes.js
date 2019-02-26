@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import BotaoDetalhes from './botaoDetalhes'
 import firebase from 'firebase'
-import loading from '../resources/loading.gif'
+import ReactLoading from 'react-loading'
 
 export default class Detalhes extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             visitas: null
-        };
+        }
     }
     componentWillMount() {
         let visitas = []
@@ -38,7 +38,7 @@ export default class Detalhes extends Component {
         else
             return (
                 <div className='d-flex justify-content-center'>
-                    <img src={loading} alt='Loading...'/>
+                    <ReactLoading type={'spinningBubbles'} color={'#28a745'} />
                 </div>
             )
     }

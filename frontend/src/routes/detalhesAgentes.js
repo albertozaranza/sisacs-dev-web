@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../componentes/header'
-import Detalhes from '../componentes/detalhes';
+import Detalhes from '../componentes/detalhes'
 
 export default class DetalhesAgentes extends Component {
   render() {

@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import BotaoAgente from './botaoAgente'
 import firebase from 'firebase'
-import loading from '../resources/loading.gif'
+import ReactLoading from 'react-loading'
 
 export default class ListaAgentes extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             agentes: null,
             search: ''
-        };
+        }
     }
     componentWillMount() {
         let agentes = []
@@ -24,7 +24,7 @@ export default class ListaAgentes extends Component {
         let agentesFiltrados = this.state.agentes.filter(agente => {
             return agente.id.indexOf(this.state.search) !== -1
         })
-        if(agentesFiltrados.length == 0){
+        if(agentesFiltrados.length === 0){
             return 'Nenhum resultado foi encontrado'
         }
         else {
@@ -45,7 +45,7 @@ export default class ListaAgentes extends Component {
                 <div>
                     <div>
                         <div className="p-2 m-2 rounded border d-flex d-column align-items-center" style={{backgroundColor: '#F8F8F8'}}>
-                            <i class="fa fa-search ml-3 mr-3" aria-hidden="true"></i>
+                            <i className="fa fa-search ml-3 mr-3" aria-hidden="true"></i>
                             <input className='form-control rounded m-1' placeholder='Buscar agente' 
                                 onChange={this.searchHandler}
                                 value={this.state.search}/>
@@ -61,7 +61,7 @@ export default class ListaAgentes extends Component {
         else
             return (
                 <div className='d-flex justify-content-center'>
-                    <img src={loading} alt='Loading...'/>
+                    <ReactLoading type={'spinningBubbles'} color={'#28a745'} />
                 </div>
             )
     }
