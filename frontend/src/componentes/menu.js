@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Menu extends Component {
   render() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "#689F38"}}>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-success">
             <div className="container-fluid">
                 <a className='navbar-brand' href='/'>
                     <i className="fa fa-hospital-o mr-2"></i>
