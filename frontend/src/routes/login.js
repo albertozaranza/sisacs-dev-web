@@ -49,14 +49,14 @@ export default class Login extends Component {
                         {this.state.erroLogin.toString()}
                     </div>
                     <button className='btn btn-success btn-block mt-4' onClick={() => this.autenticarUsuario()}>
-                        Login
+                        Entrar
                     </button> 
                 </div>
             )
         }
         return(
             <button className='btn btn-success btn-block mt-4' onClick={() => this.autenticarUsuario()}>
-                Login
+                Entrar
             </button> 
         )
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import base64 from 'base-64'
 
 export default class BotaoAgente extends Component {
     render() {
@@ -9,7 +10,7 @@ export default class BotaoAgente extends Component {
                     {this.props.id}
                 </div>
                 <div>
-                    <Link to={`/detalhes/${this.props.id}`}>
+                    <Link to={`/detalhes/${base64.encode(this.props.id)}`}>
                         <button className="btn btn-secondary">
                             Detalhes
                         </button>

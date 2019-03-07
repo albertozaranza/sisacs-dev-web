@@ -12,17 +12,19 @@ export default class Detalhes extends Component {
     }
     componentWillMount() {
         let visitas = []
-        firebase.database().ref(`/agentes/${this.props.id}`).once('value').then(snapshot => {
+        firebase.database().ref(`/agentes/${this.props.id}`).on('value', snapshot => {
+            visitas = []
             snapshot.forEach(ids => {
-                visitas.push({id: ids.key})
+                visitas.push(ids.val())
             })
+            console.log(visitas)
             this.setState({visitas})
         })
     }
     renderItems = () => {
         return this.state.visitas.map((item, index) => (
             <li key={index} className="list-group-item rounded m-1">
-                <BotaoDetalhes id={atob(item.id)} />
+                <BotaoDetalhes id={item.horario_visita} />
             </li>
         ))
     }

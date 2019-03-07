@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BotaoAgente from './botaoAgente'
 import firebase from 'firebase'
 import ReactLoading from 'react-loading'
+import base64 from 'base-64'
 
 export default class ListaAgentes extends Component {
     constructor(props) {
@@ -13,9 +14,10 @@ export default class ListaAgentes extends Component {
     }
     componentWillMount() {
         let agentes = []
-        firebase.database().ref('/agentes').once('value').then(snapshot => {
+        firebase.database().ref('/agentes').on('value', snapshot => {
+            agentes = []
             snapshot.forEach(ids => {
-                agentes.push({id: ids.key})
+                agentes.push({id: base64.decode(ids.key)})
             })
             this.setState({agentes})
         })
