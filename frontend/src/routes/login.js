@@ -76,7 +76,7 @@ export default class Login extends Component {
                     backgroundRepeat: 'no-repeat',
                     height: this.state.height}}>
                     <h1 className='mb-4'>SISACS</h1>                    
-                    <div className='d-flex flex-column border p-4 m-4 rounded' style={{backgroundColor: '#F8F8F8'}}>
+                    <form className='d-flex flex-column border p-4 m-4 rounded' style={{backgroundColor: '#F8F8F8'}}>
                         <h1 className='h3 mb-3 font-weight-normal'>Por favor, faça o login</h1>
                         <input className='mt-2 mb-2 form-control' 
                             type='email' placeholder='E-mail'
@@ -87,7 +87,7 @@ export default class Login extends Component {
                             value={this.state.senha}
                             onChange={this.handlePassword}/>
                         {this.renderBotaoLogin()}
-                    </div>
+                    </form>
             </div>
         )
     }
