@@ -6,7 +6,7 @@ export default class Menu extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-success">
                 <div className="container-fluid">
-                    <a className='navbar-brand' href='/'>
+                    <a className='navbar-brand' href='/' style={{cursor: 'pointer'}}>
                         <i className="fa fa-hospital-o mr-2"></i>
                         SISACS
                     </a>
