@@ -9,7 +9,19 @@ export default class Menu extends Component {
         <div>
             <Header name={`Bem vindo, ${firebase.auth().currentUser.email}`}/>
             <Link to={'/agentes'}>
-              <button>Form1</button>
+              <div className='d-inline-flex flex-column justify-content-center align-items-center rounded' style={{backgroundColor: '#28a745'}}>
+                <div>
+                  <i className="fa fa-home fa-5x" aria-hidden="true" style={{color: '#fff'}}></i>
+                </div>
+                <div>
+                  <button style={{
+                  maxWidth: 170,
+                  backgroundColor: '#28a745',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#fff'}}>Ficha de Visita Domicilar e Territorial</button>
+                </div>
+              </div>
             </Link>
         </div>
     )
