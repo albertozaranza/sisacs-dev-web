@@ -17,7 +17,11 @@ export default class Menu extends Component {
                 <div id='navbar-menu' className='navbar-collapse collapse'>
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className='nav-item'>
-                            <a className='nav-link' href='/' onClick={() => firebase.auth().signOut()}>Sair</a>
+                            <button className='nav-link' style={{
+                                backgroundColor: '#28a745', 
+                                border: 'none', 
+                                cursor: 'pointer'}} 
+                                onClick={() => firebase.auth().signOut()}>Sair</button>
                         </li>
                     </ul>
                 </div>
