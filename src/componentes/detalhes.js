@@ -7,24 +7,24 @@ export default class Detalhes extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            visitas: null
+            visitas: null,
+            keys: null
         }
     }
     componentWillMount() {
-        let visitas = []
         firebase.database().ref(`/agentes/${this.props.id}`).on('value', snapshot => {
-            visitas = []
+            let visitas = [], keys = []
             snapshot.forEach(ids => {
                 visitas.push(ids.val())
+                keys.push(ids.key)
             })
-            console.log(visitas)
-            this.setState({visitas})
+            this.setState({visitas, keys})
         })
     }
     renderItems = () => {
         return this.state.visitas.map((item, index) => (
             <li key={index} className="list-group-item rounded m-1">
-                <BotaoDetalhes id={item.horario_visita} />
+                <BotaoDetalhes horario={item.horario_visita} id={this.state.keys[index]} email={this.props.id}/>
             </li>
         ))
     }
