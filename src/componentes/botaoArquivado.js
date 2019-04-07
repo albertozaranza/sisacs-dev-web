@@ -13,12 +13,9 @@ export default class BotaoDetalhes extends Component {
             this.setState({values: snapshot.val()})
         })
     }
-    copiar = () => {
-        alert('Dados copiados com sucesso!')
-    }
-    arquivar = () => {
-        firebase.database().ref(`/agentes/${this.props.email}/${this.props.id}`).update({arquivado: true})
-        alert('Item arquivado')
+    desarquivar = () => {
+        firebase.database().ref(`/agentes/${this.props.email}/${this.props.id}`).update({arquivado: false})
+        alert('Item desarquivado')
     }
     render() {
         return (
@@ -27,11 +24,8 @@ export default class BotaoDetalhes extends Component {
                     {this.props.horario}
                 </div>
                 <div>
-                    <button className="btn btn-secondary" onClick={() => this.copiar()}>
-                        Copiar
-                    </button>
-                    <button className="btn btn-secondary ml-1" onClick={() => this.arquivar()}>
-                        Arquivar
+                    <button className="btn btn-secondary ml-1" onClick={() => this.desarquivar()}>
+                        Desarquivar
                     </button>
                 </div>
             </div>

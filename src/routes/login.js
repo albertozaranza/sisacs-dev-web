@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import background from '../resources/background.png'
 import ReactLoading from 'react-loading'
-
 import firebase from 'firebase'
 
 export default class Login extends Component {
